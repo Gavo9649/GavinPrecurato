@@ -292,6 +292,8 @@ h3 {
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -303,7 +305,14 @@ h3 {
 }
 
 .project-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 1.15rem;
+}
+
+.project-body p:not(.project-type) {
+  margin-bottom: 1rem;
 }
 
 .project-type,
@@ -320,7 +329,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 1rem 0;
+  margin: auto 0 1rem;
 }
 
 .tag-row span {
@@ -333,6 +342,8 @@ h3 {
 }
 
 .text-link {
+  display: inline-flex;
+  align-self: flex-start;
   color: var(--accent);
   font-weight: 800;
 }
@@ -350,7 +361,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.2rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .case-layout.reverse {
@@ -358,6 +369,9 @@ h3 {
 }
 
 .case-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   padding: 1.5rem;
 }
 
