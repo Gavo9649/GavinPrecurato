@@ -11,7 +11,7 @@
   --accent-strong: #3d6f9f;
   --warm: #d6a461;
   --green: #8ebf9b;
-  --shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+  --shadow: 0 0 36px rgba(0, 0, 0, 0.24);
   --radius: 8px;
   --max: 1180px;
 }
@@ -559,9 +559,13 @@ h3 {
 
   .metrics-grid,
   .skill-grid,
-  .project-grid,
-  .robot-gallery {
+  .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .robot-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: start;
   }
 
   .case-image img {
