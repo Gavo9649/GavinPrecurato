@@ -565,6 +565,15 @@ h3 {
   transform: translateY(0);
 }
 
+.slide {
+  width: 100%; /* Each slide takes up the container width */
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -645,3 +654,72 @@ h3 {
     flex-direction: column;
   }
 }
+
+.case-image {
+  position: relative;
+}
+
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(24, 26, 28, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 160ms ease, transform 160ms ease;
+  z-index: 2;
+}
+
+.slide-arrow::after {
+  position: absolute;
+  inset: -45% -85%;
+  content: "";
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.28) 48%,
+    rgba(255, 255, 255, 0.1) 54%,
+    transparent 66%
+  );
+  opacity: 0;
+  transform: translateX(-65%);
+  pointer-events: none;
+}
+
+.slide-arrow:hover {
+  background: var(--accent-strong);
+  transform: translateY(-50%) translateY(-2px);
+}
+
+.slide-arrow:hover::after {
+  animation: button-shine 620ms ease;
+}
+
+.slide-arrow--prev { left: 0.6rem; }
+.slide-arrow--next { right: 0.6rem; }
+
+.slide-arrow svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.slide-arrow:hover {
+  background: var(--accent-strong);
+}
+
+.slide-arrow--prev { left: 0.6rem; }
+.slide-arrow--next { right: 0.6rem; }

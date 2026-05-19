@@ -66,3 +66,24 @@ if (prefersReducedMotion || !("IntersectionObserver" in window)) {
     });
   }, 100);
 }
+
+document.querySelectorAll('[data-slideshow]').forEach((figure) => {
+  const slides = JSON.parse(figure.dataset.slides);
+  if (slides.length < 2) return;
+
+  const img = figure.querySelector('img');
+  let current = 0;
+
+  function goTo(index) {
+    img.style.transition = 'opacity 400ms ease';
+    img.style.opacity = '0';
+    setTimeout(() => {
+      current = (index + slides.length) % slides.length;
+      img.src = slides[current];
+      img.style.opacity = '1';
+    }, 400);
+  }
+
+  figure.querySelector('.slide-arrow--prev').addEventListener('click', () => goTo(current - 1));
+  figure.querySelector('.slide-arrow--next').addEventListener('click', () => goTo(current + 1));
+});
